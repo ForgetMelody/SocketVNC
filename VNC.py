@@ -118,6 +118,7 @@ if __name__ == '__main__':
     client = VNCClient()
     client.connect()
     client.set_encodings()
+
     client.request_frame_update()
     img = client.recv_server_msg()
     # saveimg
@@ -126,4 +127,8 @@ if __name__ == '__main__':
     client.key_event(ord("w"), 1)
     time.sleep(3)
     client.key_event(ord("w"), 0)
+
+    client.pointer_event(1, 100, 100)
+    client.pointer_event(0, 100, 100)
+
     client.close()
